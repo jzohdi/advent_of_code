@@ -18,8 +18,7 @@ pub fn part_two() -> i32 {
     let nums = file_to_ints("./src/day_one/input.txt");
 
     (3..nums.len()).fold(0, |acc, idx| {
-        if nums[idx - 2] + nums[idx - 1] + nums[idx] > nums[idx - 3] + nums[idx - 2] + nums[idx - 1]
-        {
+        if nums[idx - 2..idx + 1].iter().sum::<i32>() > nums[idx - 3..idx].iter().sum::<i32>() {
             acc + 1
         } else {
             acc
