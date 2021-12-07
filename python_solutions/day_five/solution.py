@@ -68,4 +68,4 @@ def is_straight_or_diagonal(s_x: int, s_y: int, e_x: int, e_y: int) -> bool:
 if __name__ == '__main__':
     file_path = './input.txt'
     print("Day 5, part one:", part_one(file_path, lambda s_x, s_y, e_x, e_y: s_x == e_x or s_y == e_y))
-    print("Day 6, part two:", part_one(file_path, is_straight_or_diagonal))
+    print("Day 5, part two:", part_one(file_path, is_straight_or_diagonal))
