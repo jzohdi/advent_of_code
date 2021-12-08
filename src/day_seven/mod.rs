@@ -10,8 +10,7 @@ pub fn solution(guassian: bool) -> usize {
         .split(",")
         .map(|x| x.parse::<usize>().unwrap())
         .collect();
-    let length = input.len();
-    (0..length)
+    (0..input.len())
         .map(|idx| calc_fuel_to_move_to(&input, idx, guassian))
         .min()
         .unwrap()

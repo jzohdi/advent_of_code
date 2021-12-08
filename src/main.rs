@@ -1,3 +1,4 @@
+mod day_eight;
 mod day_five;
 mod day_one;
 mod day_seven;
@@ -18,4 +19,6 @@ fn main() {
     println!("Day 6, part two: {}", day_six::make_fish(256));
     println!("Day 7, part one: {}", day_seven::solution(false));
     println!("Day 7, part two: {}", day_seven::solution(true));
+    println!("Day 8, part one: {}", day_eight::solution());
+    println!("Day 8, part two: {}", day_eight::solution_part_two());
 }
