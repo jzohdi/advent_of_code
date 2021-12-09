@@ -76,19 +76,11 @@ fn basin_size(row: usize, col: usize, grid: &Vec<Vec<usize>>) -> usize {
                 && grid[child_row][child_col] > grid[next_row][next_col]
                 && !visited[child_row][child_col]
             {
-                // println!(
-                //     "Calculating basin size from: {}-{} ({}). Curr basin size: {}, next to visit: {}-{} ({})",
-                //     row, col, grid[row][col], basin, child_row, child_col, grid[child_row][child_col]
-                // );
                 stack.push((child_row, child_col));
                 visited[child_row][child_col] = true;
             }
         }
     }
-    // println!(
-    //     "Basin size from: {}-{} ({}) = {}\n",
-    //     row, col, grid[row][col], basin
-    // );
     basin
 }
 
