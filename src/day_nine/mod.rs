@@ -61,6 +61,7 @@ fn find_low_points(grid: &Vec<Vec<usize>>, use_basin: bool) -> Vec<usize> {
     low_points
 }
 
+// iterative DFS
 fn basin_size(row: usize, col: usize, grid: &Vec<Vec<usize>>) -> usize {
     let max_row = grid.len();
     let max_col = grid[0].len();
