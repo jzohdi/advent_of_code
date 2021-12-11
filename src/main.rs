@@ -1,9 +1,11 @@
 mod day_eight;
+mod day_eleven;
 mod day_five;
 mod day_nine;
 mod day_one;
 mod day_seven;
 mod day_six;
+mod day_ten;
 mod day_three;
 mod day_two;
 
@@ -24,4 +26,8 @@ fn main() {
     println!("Day 8, part two: {}", day_eight::solution_part_two());
     println!("Day 9, part one: {}", day_nine::solution(false));
     println!("Day 9, part two: {}", day_nine::solution(true));
+    println!("Day 10, part one: {}", day_ten::part_one());
+    println!("Day 10, part two: {}", day_ten::part_two());
+    println!("Day 11, part one: {}", day_eleven::solution(false));
+    println!("Day 11, part two: {}", day_eleven::solution(true));
 }

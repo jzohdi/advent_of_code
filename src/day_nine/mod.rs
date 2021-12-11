@@ -2,7 +2,6 @@ use std::fs;
 const FILE_INPUT: &str = "./src/day_nine/input.txt";
 
 pub fn solution(use_basin: bool) -> usize {
-    // let mut grid:Vec<Vec<usize>> = vec![];
     let file = fs::read_to_string(FILE_INPUT).unwrap();
     let grid: Vec<Vec<usize>> = file
         .lines()
