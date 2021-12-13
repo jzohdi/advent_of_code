@@ -44,13 +44,6 @@ pub fn solution(part_two: bool) -> usize {
     num_flashes
 }
 
-fn print_grid(grid: &Vec<Vec<u8>>) {
-    for row in 0..10 {
-        println!("{:?}", grid[row]);
-    }
-    println!("");
-}
-
 fn inc_all_by_one(grid: &mut Vec<Vec<u8>>) -> () {
     for row in 0..grid.len() {
         for col in 0..grid[0].len() {
