@@ -14,6 +14,5 @@ pub fn make_edges_map<'a>(lines: Vec<&'a str>) -> Edges<'a> {
         edges.entry(&s).or_insert(HashSet::new()).insert(e);
         edges.entry(&e).or_insert(HashSet::new()).insert(s);
     }
-
     edges
 }

@@ -106,8 +106,6 @@ pub fn part_two() -> () {
         }
     }
     paper.print();
-
-    // return paper.count_points();
 }
 
 fn parse_instruction(instruction: &str) -> (&str, usize) {
