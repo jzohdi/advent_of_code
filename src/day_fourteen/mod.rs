@@ -14,11 +14,11 @@ pub fn solution() -> () {
 
 fn init_polymer(line: &str) -> Polymer {
     let mut poly = HashMap::new();
-
     for pairs in line.chars().collect::<Vec<char>>().windows(2) {
-        poly.insert((pairs[0], pairs[1]), 1);
+        poly.entry((pairs[0], pairs[1]))
+            .and_modify(|c| *c += 1)
+            .or_insert(1);
     }
-
     poly
 }
 
@@ -27,25 +27,34 @@ fn part_two() -> usize {
     let mut lines = file.lines();
     let line1 = lines.next().unwrap();
     let mut polymer: Polymer = init_polymer(line1);
+
     lines.next();
+
     let rules = extract_rules(lines.collect());
 
     let mut counter = count_chars(&line1.chars().collect());
 
-    for _step in 0..10 {
+    for _step in 0..40 {
         let mut new_polymer: Polymer = HashMap::new();
         for (pair, count) in &polymer.clone() {
             let rule_char = rules.get(pair).unwrap();
-            let new_pair1 = (pair.0, *rule_char);
-            let new_pair2 = (*rule_char, pair.1);
-            *new_polymer.entry(new_pair1).or_insert(0) += count;
-            *new_polymer.entry(new_pair2).or_insert(0) += count;
-            *counter.entry(*rule_char).or_insert(0) += count;
+            let (new_pair1, new_pair2) = ((pair.0, *rule_char), (*rule_char, pair.1));
+            new_polymer
+                .entry(new_pair1)
+                .and_modify(|c| *c += count)
+                .or_insert(*count);
+            new_polymer
+                .entry(new_pair2)
+                .and_modify(|c| *c += count)
+                .or_insert(*count);
+            counter
+                .entry(*rule_char)
+                .and_modify(|c| *c += count)
+                .or_insert(*count);
         }
         polymer = new_polymer;
     }
-    // println!("{:?}", counter);
-    count_diff(counter, usize::MAX)
+    count_diff(counter)
 }
 
 fn extract_rules(lines: Vec<&str>) -> Rules {
@@ -83,29 +92,18 @@ fn part_one() -> usize {
 }
 
 fn count_chars(chrs: &Vec<char>) -> Counter {
-    let mut counter: Counter = HashMap::new();
-    for &c in chrs {
-        *counter.entry(c).or_insert(0) += 1;
-    }
-    counter
+    chrs.into_iter().fold(HashMap::new(), |mut acc, &curr| {
+        acc.entry(curr).and_modify(|c| *c += 1).or_insert(1);
+        acc
+    })
 }
 
-fn count_diff(counter: Counter, max_size: usize) -> usize {
-    let mut max_count: usize = 0;
-    let mut min_count: usize = max_size;
-    for &count in counter.values() {
-        if count > max_count {
-            max_count = count;
-        }
-        if count < min_count {
-            min_count = count;
-        }
-    }
+fn count_diff(counter: Counter) -> usize {
+    let max_count: usize = *counter.iter().max_by(|a, b| a.1.cmp(&b.1)).unwrap().1;
+    let min_count: usize = *counter.iter().min_by(|a, b| a.1.cmp(&b.1)).unwrap().1;
     return max_count - min_count;
 }
 
 fn result(chrs: &Vec<char>) -> usize {
-    let counter = count_chars(chrs);
-    println!("{:?}", counter);
-    count_diff(counter, chrs.len())
+    count_diff(count_chars(chrs))
 }
