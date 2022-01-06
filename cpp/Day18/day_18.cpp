@@ -2,6 +2,7 @@
 #include <vector>
 #include <tuple>
 #include <string>
+#include <cmath>
 #include "day_18.h"
 
 using namespace std;
@@ -20,16 +21,20 @@ void clean_up(vector<node *> *pairs);
 string print_pairs(vector<node *> *pairs, int idx);
 bool explode(node *curr, int inside_count, vector<node *> *pairs);
 void add(int l_val, int r_val, int node_idx, vector<node *> *pairs);
+bool split(node *curr, vector<node *> *pairs);
 
 // [ [parent: -1, left: 1], [parent: 0, left: 2], [parent: 1, ]]
 void run()
 {
-    string input_line = "[[6,[5,[4,[3,2]]]],1]";
+    string input_line = "[[[[[4,3],4],4],[7,[[8,4],9]]],[1,1]]";
     vector<node *> pairs;
     int root_parent = -1;
 
     parse_next(input_line, &root_parent, &pairs);
+    cout << "parsed pairs: " << print_pairs(&pairs, 0) << endl;
     explode(pairs[0], 0, &pairs);
+    explode(pairs[0], 0, &pairs);
+    split(pairs[0], &pairs);
     cout << "parsed pairs: " << print_pairs(&pairs, 0) << endl;
 
     clean_up(&pairs);
@@ -61,6 +66,38 @@ bool explode(node *curr, int inside_count, vector<node *> *pairs)
         return true;
     }
     return explode((*pairs)[left_idx], inside_count + 1, pairs) || explode((*pairs)[right_idx], inside_count + 1, pairs);
+}
+
+bool split(node *curr, vector<node *> *pairs)
+{
+    if (curr->left == -1)
+    {
+        if (curr->value >= 10)
+        {
+            int new_left = floor((float)curr->value / 2.0);
+            int new_right = ceil((float)curr->value / 2.0);
+            curr->value = -1;
+            curr->left = (*pairs).size();
+            curr->right = curr->left + 1;
+            node *new_left_ptr = new node{
+                new_left,
+                curr->id,
+                curr->left,
+                -1,
+                -1};
+            node *new_right_ptr = new node{
+                new_right,
+                curr->id,
+                curr->right,
+                -1,
+                -1};
+            (*pairs).push_back(new_left_ptr);
+            (*pairs).push_back(new_right_ptr);
+            return true;
+        }
+        return false;
+    }
+    return split((*pairs)[curr->left], pairs) || split((*pairs)[curr->right], pairs);
 }
 
 void add_to_min(int val, int node_idx, vector<node *> *pairs)
