@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jzohdi/rust_projects/advent_of_code/cpp/Day18/day_18.cpp
+iostream
+-
+vector
+-
+tuple
+-
+string
+-
+day_18.h
+/home/jzohdi/rust_projects/advent_of_code/cpp/Day18/day_18.h
+
+/home/jzohdi/rust_projects/advent_of_code/cpp/Day18/day_18.h
+

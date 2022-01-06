@@ -1,0 +1,1 @@
+cd "build" && eval "make" && eval "./AoC"

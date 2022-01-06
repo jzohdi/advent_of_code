@@ -1,5 +1,6 @@
 use std::env;
 
+mod day_16;
 mod day_eight;
 mod day_eleven;
 mod day_fifteen;
@@ -71,5 +72,8 @@ fn main() {
     }
     if cmd_args.contains(&String::from("15")) {
         day_fifteen::solution();
+    }
+    if cmd_args.contains(&String::from("16")) {
+        day_16::solution();
     }
 }

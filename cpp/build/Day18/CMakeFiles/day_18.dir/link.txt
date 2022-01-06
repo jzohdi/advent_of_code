@@ -1,0 +1,2 @@
+/usr/bin/ar qc libday_18.a  CMakeFiles/day_18.dir/day_18.cpp.o
+/usr/bin/ranlib libday_18.a
