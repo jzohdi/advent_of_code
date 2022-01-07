@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/AoC.dir/main.cpp.o  -o AoC   -L/home/jzohdi/rust_projects/advent_of_code/cpp/Day18  -Wl,-rpath,/home/jzohdi/rust_projects/advent_of_code/cpp/Day18 Day18/libday_18.a 
+/usr/bin/c++     CMakeFiles/AoC.dir/main.cpp.o  -o AoC   -L/home/jzohdi/rust_projects/advent_of_code/cpp/Day19  -Wl,-rpath,/home/jzohdi/rust_projects/advent_of_code/cpp/Day19 Day19/libday_19.a 

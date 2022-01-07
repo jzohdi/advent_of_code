@@ -124,17 +124,17 @@ AoC/fast:
 .PHONY : AoC/fast
 
 #=============================================================================
-# Target rules for targets named day_18
+# Target rules for targets named day_19
 
 # Build rule for target.
-day_18: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 day_18
-.PHONY : day_18
+day_19: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 day_19
+.PHONY : day_19
 
 # fast build rule for target.
-day_18/fast:
-	$(MAKE) -f Day18/CMakeFiles/day_18.dir/build.make Day18/CMakeFiles/day_18.dir/build
-.PHONY : day_18/fast
+day_19/fast:
+	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/build
+.PHONY : day_19/fast
 
 main.o: main.cpp.o
 
@@ -172,7 +172,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... AoC"
-	@echo "... day_18"
+	@echo "... day_19"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

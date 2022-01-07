@@ -54,44 +54,44 @@ CMAKE_BINARY_DIR = /home/jzohdi/rust_projects/advent_of_code/cpp/build
 
 # The main recursive "all" target.
 all: CMakeFiles/AoC.dir/all
-all: Day18/all
+all: Day19/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: Day18/preinstall
+preinstall: Day19/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/AoC.dir/clean
-clean: Day18/clean
+clean: Day19/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory Day18
+# Directory level rules for directory Day19
 
 # Recursive "all" directory target.
-Day18/all: Day18/CMakeFiles/day_18.dir/all
+Day19/all: Day19/CMakeFiles/day_19.dir/all
 
-.PHONY : Day18/all
+.PHONY : Day19/all
 
 # Recursive "preinstall" directory target.
-Day18/preinstall:
+Day19/preinstall:
 
-.PHONY : Day18/preinstall
+.PHONY : Day19/preinstall
 
 # Recursive "clean" directory target.
-Day18/clean: Day18/CMakeFiles/day_18.dir/clean
+Day19/clean: Day19/CMakeFiles/day_19.dir/clean
 
-.PHONY : Day18/clean
+.PHONY : Day19/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/AoC.dir
 
 # All Build rule for target.
-CMakeFiles/AoC.dir/all: Day18/CMakeFiles/day_18.dir/all
+CMakeFiles/AoC.dir/all: Day19/CMakeFiles/day_19.dir/all
 	$(MAKE) -f CMakeFiles/AoC.dir/build.make CMakeFiles/AoC.dir/depend
 	$(MAKE) -f CMakeFiles/AoC.dir/build.make CMakeFiles/AoC.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=1,2 "Built target AoC"
@@ -115,31 +115,31 @@ CMakeFiles/AoC.dir/clean:
 .PHONY : CMakeFiles/AoC.dir/clean
 
 #=============================================================================
-# Target rules for target Day18/CMakeFiles/day_18.dir
+# Target rules for target Day19/CMakeFiles/day_19.dir
 
 # All Build rule for target.
-Day18/CMakeFiles/day_18.dir/all:
-	$(MAKE) -f Day18/CMakeFiles/day_18.dir/build.make Day18/CMakeFiles/day_18.dir/depend
-	$(MAKE) -f Day18/CMakeFiles/day_18.dir/build.make Day18/CMakeFiles/day_18.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=3,4 "Built target day_18"
-.PHONY : Day18/CMakeFiles/day_18.dir/all
+Day19/CMakeFiles/day_19.dir/all:
+	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/depend
+	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=3,4 "Built target day_19"
+.PHONY : Day19/CMakeFiles/day_19.dir/all
 
 # Build rule for subdir invocation for target.
-Day18/CMakeFiles/day_18.dir/rule: cmake_check_build_system
+Day19/CMakeFiles/day_19.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 Day18/CMakeFiles/day_18.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 Day19/CMakeFiles/day_19.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles 0
-.PHONY : Day18/CMakeFiles/day_18.dir/rule
+.PHONY : Day19/CMakeFiles/day_19.dir/rule
 
 # Convenience name for target.
-day_18: Day18/CMakeFiles/day_18.dir/rule
+day_19: Day19/CMakeFiles/day_19.dir/rule
 
-.PHONY : day_18
+.PHONY : day_19
 
 # clean rule for target.
-Day18/CMakeFiles/day_18.dir/clean:
-	$(MAKE) -f Day18/CMakeFiles/day_18.dir/build.make Day18/CMakeFiles/day_18.dir/clean
-.PHONY : Day18/CMakeFiles/day_18.dir/clean
+Day19/CMakeFiles/day_19.dir/clean:
+	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/clean
+.PHONY : Day19/CMakeFiles/day_19.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

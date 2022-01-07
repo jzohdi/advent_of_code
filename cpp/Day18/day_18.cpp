@@ -48,6 +48,8 @@ void part_one()
         else
         {
             node *new_root = add_nodes(root, new_num);
+            clean_up(root);
+            clean_up(new_num);
             root = new_root;
             reduce(root);
         }
