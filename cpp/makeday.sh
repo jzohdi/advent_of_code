@@ -1,11 +1,9 @@
 #! /bin/bash
+
 die () {
     echo >&2 "$@"
     exit 1
 }
-# chmod u+x ./makeday.sh
-# ECHO COMMAND
-# echo Hello World!
 
 PROJECT_NAME="AoC"
 DAY_NUM=$1
@@ -33,10 +31,12 @@ echo "#include <iostream>
 #include <vector>
 #include <string>
 #include \"$COMMON_NAME.h\"
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include \"../external/doctest/doctest/doctest.h\"
 
 using namespace std;
 
-void run()
+int part_one()
 {
     vector<string> msg{\"Hello\", \"C++\", \"World\", \"from\", \"$DAY_NUM\"};
 
@@ -45,11 +45,17 @@ void run()
         cout << word << \" \";
     }
     cout << endl;
+    return 1;
+}
+
+TEST_CASE(\"testing the factorial function\")
+{
+    CHECK(part_one() == 1);
 }" >> "$DIR_NAME/$COMMON_NAME.cpp"
 
 touch "$DIR_NAME/$COMMON_NAME.h"
 
-echo "void run();" >> "$DIR_NAME/$COMMON_NAME.h"
+echo "int main(int, char **);" >> "$DIR_NAME/$COMMON_NAME.h"
 
 touch "$DIR_NAME/$CMAKE"
 echo "add_library($COMMON_NAME $COMMON_NAME.cpp)" >> "$DIR_NAME/$CMAKE"
@@ -57,19 +63,6 @@ echo "add_library($COMMON_NAME $COMMON_NAME.cpp)" >> "$DIR_NAME/$CMAKE"
 touch "$DIR_NAME/input.txt"
 touch "$DIR_NAME/test.txt"
 
-# if grep -Fxq "add_subdirectory($DIR_NAME)" "$CMAKE"
-# then
-#     echo "Already added configuration to top level CMake"
-# else
-#     echo "
-# add_subdirectory($DIR_NAME)
-
-# target_include_directories($PROJECT_NAME PRIVATE $DIR_NAME)
-
-# target_link_directories($PROJECT_NAME PRIVATE $DIR_NAME/)
-
-# target_link_libraries($PROJECT_NAME $COMMON_NAME)" >> CMakeLists.txt
-# fi
 eval "./setday.sh $PROJECT_NAME $DAY_NUM"
 
 eval "./build.sh"

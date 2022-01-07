@@ -4,10 +4,18 @@ project(AoC)
 
 add_executable(AoC main.cpp)
 
-add_subdirectory(Day19)
+add_subdirectory(external/doctest)
 
-target_include_directories(AoC PRIVATE Day19)
+add_subdirectory(Day20)
 
-target_link_directories(AoC PRIVATE Day19/)
+target_include_directories(AoC 
+    PRIVATE Day20
+    PUBLIC external/doctest/include
+)
 
-target_link_libraries(AoC day_19)
+target_link_directories(AoC 
+    PRIVATE Day20/
+    PRIVATE external/doctest/src    
+)
+
+target_link_libraries(AoC day_20 doctest)

@@ -54,44 +54,65 @@ CMAKE_BINARY_DIR = /home/jzohdi/rust_projects/advent_of_code/cpp/build
 
 # The main recursive "all" target.
 all: CMakeFiles/AoC.dir/all
-all: Day19/all
+all: external/doctest/all
+all: Day20/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: Day19/preinstall
+preinstall: external/doctest/preinstall
+preinstall: Day20/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/AoC.dir/clean
-clean: Day19/clean
+clean: external/doctest/clean
+clean: Day20/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory Day19
+# Directory level rules for directory Day20
 
 # Recursive "all" directory target.
-Day19/all: Day19/CMakeFiles/day_19.dir/all
+Day20/all: Day20/CMakeFiles/day_20.dir/all
 
-.PHONY : Day19/all
+.PHONY : Day20/all
 
 # Recursive "preinstall" directory target.
-Day19/preinstall:
+Day20/preinstall:
 
-.PHONY : Day19/preinstall
+.PHONY : Day20/preinstall
 
 # Recursive "clean" directory target.
-Day19/clean: Day19/CMakeFiles/day_19.dir/clean
+Day20/clean: Day20/CMakeFiles/day_20.dir/clean
 
-.PHONY : Day19/clean
+.PHONY : Day20/clean
+
+#=============================================================================
+# Directory level rules for directory external/doctest
+
+# Recursive "all" directory target.
+external/doctest/all:
+
+.PHONY : external/doctest/all
+
+# Recursive "preinstall" directory target.
+external/doctest/preinstall:
+
+.PHONY : external/doctest/preinstall
+
+# Recursive "clean" directory target.
+external/doctest/clean: external/doctest/CMakeFiles/doctest_with_main.dir/clean
+
+.PHONY : external/doctest/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/AoC.dir
 
 # All Build rule for target.
-CMakeFiles/AoC.dir/all: Day19/CMakeFiles/day_19.dir/all
+CMakeFiles/AoC.dir/all: Day20/CMakeFiles/day_20.dir/all
 	$(MAKE) -f CMakeFiles/AoC.dir/build.make CMakeFiles/AoC.dir/depend
 	$(MAKE) -f CMakeFiles/AoC.dir/build.make CMakeFiles/AoC.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=1,2 "Built target AoC"
@@ -115,31 +136,58 @@ CMakeFiles/AoC.dir/clean:
 .PHONY : CMakeFiles/AoC.dir/clean
 
 #=============================================================================
-# Target rules for target Day19/CMakeFiles/day_19.dir
+# Target rules for target external/doctest/CMakeFiles/doctest_with_main.dir
 
 # All Build rule for target.
-Day19/CMakeFiles/day_19.dir/all:
-	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/depend
-	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=3,4 "Built target day_19"
-.PHONY : Day19/CMakeFiles/day_19.dir/all
+external/doctest/CMakeFiles/doctest_with_main.dir/all:
+	$(MAKE) -f external/doctest/CMakeFiles/doctest_with_main.dir/build.make external/doctest/CMakeFiles/doctest_with_main.dir/depend
+	$(MAKE) -f external/doctest/CMakeFiles/doctest_with_main.dir/build.make external/doctest/CMakeFiles/doctest_with_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=5,6 "Built target doctest_with_main"
+.PHONY : external/doctest/CMakeFiles/doctest_with_main.dir/all
 
 # Build rule for subdir invocation for target.
-Day19/CMakeFiles/day_19.dir/rule: cmake_check_build_system
+external/doctest/CMakeFiles/doctest_with_main.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 Day19/CMakeFiles/day_19.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 external/doctest/CMakeFiles/doctest_with_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles 0
-.PHONY : Day19/CMakeFiles/day_19.dir/rule
+.PHONY : external/doctest/CMakeFiles/doctest_with_main.dir/rule
 
 # Convenience name for target.
-day_19: Day19/CMakeFiles/day_19.dir/rule
+doctest_with_main: external/doctest/CMakeFiles/doctest_with_main.dir/rule
 
-.PHONY : day_19
+.PHONY : doctest_with_main
 
 # clean rule for target.
-Day19/CMakeFiles/day_19.dir/clean:
-	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/clean
-.PHONY : Day19/CMakeFiles/day_19.dir/clean
+external/doctest/CMakeFiles/doctest_with_main.dir/clean:
+	$(MAKE) -f external/doctest/CMakeFiles/doctest_with_main.dir/build.make external/doctest/CMakeFiles/doctest_with_main.dir/clean
+.PHONY : external/doctest/CMakeFiles/doctest_with_main.dir/clean
+
+#=============================================================================
+# Target rules for target Day20/CMakeFiles/day_20.dir
+
+# All Build rule for target.
+Day20/CMakeFiles/day_20.dir/all:
+	$(MAKE) -f Day20/CMakeFiles/day_20.dir/build.make Day20/CMakeFiles/day_20.dir/depend
+	$(MAKE) -f Day20/CMakeFiles/day_20.dir/build.make Day20/CMakeFiles/day_20.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=3,4 "Built target day_20"
+.PHONY : Day20/CMakeFiles/day_20.dir/all
+
+# Build rule for subdir invocation for target.
+Day20/CMakeFiles/day_20.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 Day20/CMakeFiles/day_20.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles 0
+.PHONY : Day20/CMakeFiles/day_20.dir/rule
+
+# Convenience name for target.
+day_20: Day20/CMakeFiles/day_20.dir/rule
+
+.PHONY : day_20
+
+# clean rule for target.
+Day20/CMakeFiles/day_20.dir/clean:
+	$(MAKE) -f Day20/CMakeFiles/day_20.dir/build.make Day20/CMakeFiles/day_20.dir/clean
+.PHONY : Day20/CMakeFiles/day_20.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

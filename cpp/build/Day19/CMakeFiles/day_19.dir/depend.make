@@ -3,4 +3,5 @@
 
 Day19/CMakeFiles/day_19.dir/day_19.cpp.o: ../Day19/day_19.cpp
 Day19/CMakeFiles/day_19.dir/day_19.cpp.o: ../Day19/day_19.h
+Day19/CMakeFiles/day_19.dir/day_19.cpp.o: ../external/doctest/doctest/doctest.h
 

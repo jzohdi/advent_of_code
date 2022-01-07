@@ -1,8 +1,3 @@
-#include "Day19/day_19.h"
+#include "Day20/day_20.h"
 
 using namespace std;
-
-int main()
-{
-    run();
-}

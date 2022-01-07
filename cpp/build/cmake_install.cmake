@@ -39,7 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/cmake_install.cmake")
+  include("/home/jzohdi/rust_projects/advent_of_code/cpp/build/external/doctest/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
