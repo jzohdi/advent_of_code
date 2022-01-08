@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jzohdi/rust_projects/advent_of_code/cpp/Day20 -I/home/jzohdi/rust_projects/advent_of_code/cpp/external/doctest/include -I/home/jzohdi/rust_projects/advent_of_code/cpp/external/doctest 
+CXX_INCLUDES = -I/home/jzohdi/rust_projects/advent_of_code/cpp/Day19 -I/home/jzohdi/rust_projects/advent_of_code/cpp/external/doctest/include -I/home/jzohdi/rust_projects/advent_of_code/cpp/external/doctest 
 

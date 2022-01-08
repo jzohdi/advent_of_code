@@ -183,17 +183,17 @@ doctest_with_main/fast:
 .PHONY : doctest_with_main/fast
 
 #=============================================================================
-# Target rules for targets named day_20
+# Target rules for targets named day_19
 
 # Build rule for target.
-day_20: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 day_20
-.PHONY : day_20
+day_19: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 day_19
+.PHONY : day_19
 
 # fast build rule for target.
-day_20/fast:
-	$(MAKE) -f Day20/CMakeFiles/day_20.dir/build.make Day20/CMakeFiles/day_20.dir/build
-.PHONY : day_20/fast
+day_19/fast:
+	$(MAKE) -f Day19/CMakeFiles/day_19.dir/build.make Day19/CMakeFiles/day_19.dir/build
+.PHONY : day_19/fast
 
 main.o: main.cpp.o
 
@@ -236,7 +236,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... AoC"
 	@echo "... doctest_with_main"
-	@echo "... day_20"
+	@echo "... day_19"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

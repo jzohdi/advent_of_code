@@ -12,10 +12,10 @@
 /home/jzohdi/rust_projects/advent_of_code/cpp/build/external/doctest/CMakeFiles/edit_cache.dir
 /home/jzohdi/rust_projects/advent_of_code/cpp/build/external/doctest/CMakeFiles/doctest_with_main.dir
 /home/jzohdi/rust_projects/advent_of_code/cpp/build/external/doctest/CMakeFiles/install/strip.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/install/strip.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/install.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/list_install_components.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/rebuild_cache.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/edit_cache.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/install/local.dir
-/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day20/CMakeFiles/day_20.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/install/strip.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/install/local.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/install.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/list_install_components.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/rebuild_cache.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/edit_cache.dir
+/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day19/CMakeFiles/day_19.dir

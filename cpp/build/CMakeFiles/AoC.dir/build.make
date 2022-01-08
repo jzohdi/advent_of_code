@@ -79,7 +79,7 @@ AoC_EXTERNAL_OBJECTS =
 
 AoC: CMakeFiles/AoC.dir/main.cpp.o
 AoC: CMakeFiles/AoC.dir/build.make
-AoC: Day20/libday_20.a
+AoC: Day19/libday_19.a
 AoC: CMakeFiles/AoC.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jzohdi/rust_projects/advent_of_code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AoC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AoC.dir/link.txt --verbose=$(VERBOSE)
