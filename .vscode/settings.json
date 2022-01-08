@@ -14,7 +14,8 @@
         "functional": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "span": "cpp"
     },
     "cmake.configureOnOpen": false
 }

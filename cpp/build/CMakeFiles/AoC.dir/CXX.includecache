@@ -6,9 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/jzohdi/rust_projects/advent_of_code/cpp/Day21/day_21.h
+/home/jzohdi/rust_projects/advent_of_code/cpp/Day25/day_25.h
+string
+-
+map
+-
 
 /home/jzohdi/rust_projects/advent_of_code/cpp/main.cpp
-Day21/day_21.h
-/home/jzohdi/rust_projects/advent_of_code/cpp/Day21/day_21.h
+Day25/day_25.h
+/home/jzohdi/rust_projects/advent_of_code/cpp/Day25/day_25.h
 

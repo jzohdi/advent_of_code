@@ -48,7 +48,7 @@ int part_one()
     return 1;
 }
 
-TEST_CASE(\"testing the factorial function\")
+TEST_CASE(\"Testing day $DAY_NUM\")
 {
     CHECK(part_one() == 1);
 }" >> "$DIR_NAME/$COMMON_NAME.cpp"

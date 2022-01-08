@@ -10,14 +10,14 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../Day21"
+  "../Day25"
   "../external/doctest/include"
   "../external/doctest"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day21/CMakeFiles/day_21.dir/DependInfo.cmake"
+  "/home/jzohdi/rust_projects/advent_of_code/cpp/build/Day25/CMakeFiles/day_25.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
