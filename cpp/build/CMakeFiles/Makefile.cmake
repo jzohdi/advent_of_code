@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
-  "../Day19/CMakeLists.txt"
+  "../Day21/CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeSystem.cmake"
@@ -49,12 +49,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/doctest/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Day19/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Day21/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/AoC.dir/DependInfo.cmake"
   "external/doctest/CMakeFiles/doctest_with_main.dir/DependInfo.cmake"
-  "Day19/CMakeFiles/day_19.dir/DependInfo.cmake"
+  "Day21/CMakeFiles/day_21.dir/DependInfo.cmake"
   )

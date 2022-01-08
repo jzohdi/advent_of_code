@@ -6,16 +6,16 @@ add_executable(AoC main.cpp)
 
 add_subdirectory(external/doctest)
 
-add_subdirectory(Day19)
+add_subdirectory(Day21)
 
 target_include_directories(AoC 
-    PRIVATE Day19
+    PRIVATE Day21
     PUBLIC external/doctest/include
 )
 
 target_link_directories(AoC 
-    PRIVATE Day19/
+    PRIVATE Day21/
     PRIVATE external/doctest/src    
 )
 
-target_link_libraries(AoC day_19 doctest)
+target_link_libraries(AoC day_21 doctest)
