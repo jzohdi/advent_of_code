@@ -1,0 +1,13 @@
+/home/jzohdi/rust_projects/advent_of_code/target/debug/deps/quote-970f5d5b2e2b7855.rmeta: /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs
+
+/home/jzohdi/rust_projects/advent_of_code/target/debug/deps/libquote-970f5d5b2e2b7855.rlib: /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs
+
+/home/jzohdi/rust_projects/advent_of_code/target/debug/deps/quote-970f5d5b2e2b7855.d: /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs /home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs
+
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs:
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs:
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs:
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs:
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs:
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs:
+/home/jzohdi/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs:

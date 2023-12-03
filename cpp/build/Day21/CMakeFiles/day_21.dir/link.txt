@@ -1,2 +1,0 @@
-/usr/bin/ar qc libday_21.a  CMakeFiles/day_21.dir/day_21.cpp.o
-/usr/bin/ranlib libday_21.a
