@@ -1,6 +1,6 @@
 use regex::Regex;
 
-pub fn solution1(lines: &[String]) {    
+pub fn solution1(lines: &[String])-> i32 {    
     let re = Regex::new(r"mul\((?P<num1>\d+),\s*(?P<num2>\d+)\)").unwrap();
 
     let mut total = 0;
@@ -12,7 +12,7 @@ pub fn solution1(lines: &[String]) {
         }
     }
     println!("solution 1 total: {}", total);
-    
+    return total;
 }
 
 pub fn solution2(lines: &[String]) {    
@@ -25,18 +25,37 @@ pub fn solution2(lines: &[String]) {
     let mut total = 0;
     // let do_matches: Vec<_> = re_do.find_iter(line).collect();
     let mut start_pos = 0;
+
     while let Some(do_match) = re_do.find(&text[start_pos..]) {
         let do_start = start_pos + do_match.start();
         let do_end = start_pos + do_match.end();
-        start_pos = do_end;
+    
+        if start_pos == 0 {
+            if let Some(dont_match) = re_dont.find(&text[..do_start]) {
+                let dont_start = dont_match.start();
+                if (dont_start < do_start) {
+                    total += solution1(&[String::from(&text[..dont_start])]);
+                } else {
+                    total += solution1(&[String::from(&text[..do_start])]);
+                }
+            }
+        }
 
+        start_pos = do_end;
+    
         let mut current_pos = do_end;
         let mut found_mul = false;
+
         while let Some(mul_match) = re_mul.find(&text[current_pos..]) {
             let mul_start = current_pos + mul_match.start();
             let mul_end = current_pos + mul_match.end();
 
-            if let Some(dont_match) = re_dont.find(&text[do_end..mul_start]) {
+            if let Some(_dont_match) = re_dont.find(&text[do_end..mul_start]) {
+                break;
+            }
+            // Don't use the mul this time if there's another do between the 
+            // current do and the mul (or else will double count)
+            if let Some(_do_match) = re_do.find(&text[do_end..mul_start]) {
                 break;
             }
 
