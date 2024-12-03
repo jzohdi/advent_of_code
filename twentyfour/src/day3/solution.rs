@@ -29,7 +29,7 @@ pub fn solution2(lines: &[String]) {
     while let Some(do_match) = re_do.find(&text[start_pos..]) {
         let do_start = start_pos + do_match.start();
         let do_end = start_pos + do_match.end();
-    
+        
         if start_pos == 0 {
             if let Some(dont_match) = re_dont.find(&text[..do_start]) {
                 let dont_start = dont_match.start();
