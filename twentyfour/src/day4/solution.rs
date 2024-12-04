@@ -141,8 +141,10 @@ fn found_xmas_in_direction(lines: &[String], row: usize, col: usize, index: i32,
             if !is_correct_char_at(letter, index) {
                 return false;
             } 
-            if index == 3 {
-                // println!("found xmas at {} {}. letter: {}, index: {}", row, col, letter, index);
+            if direction > 0 && index + direction == stop_index  {
+                return true;
+            }
+            if direction < 0 && index  + direction == stop_index  {
                 return true;
             }
             if !is_valid_next(row, col, delta_row, delta_col, max_row, max_col) {
