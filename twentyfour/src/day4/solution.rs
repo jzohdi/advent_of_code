@@ -21,56 +21,106 @@ pub fn solution1(lines: &[String]) {
             }
         }
     }
-
     println!("total found: {}", total);
 }
 
 pub fn solution2(lines: &[String]) {    
     let mut total = 0;
-    // let max_row = lines.len();
-    // let max_col = lines[0].len();
-    // let visited: HashSet<String> = HashSet::new();
-    let next_starts = [
-        ((0, 2), (1, -1)), // check same row, 2 over going down left
-        ((2, 0), (-1, 1))]; // check 2 down, same col going up right  
-    let next_t_starts = [
-        ((-1, 1), (0, 1)),// start 1 row left, 1 col down. go left
-        ((-1, 1), (0, 1)) // to make compiler happy, but it will return on the first found
-    ];
+    
     for row in 0..lines.len() {
         for col in 0..lines[row].len() {
-            // check to see if this is a valid starting point
-            let letter = lines[row].chars().nth(col).unwrap();
-            // if the char is M then check for AS. then check for MAS in the two other possible dirs
-            if is_correct_char_at(letter, 1) && makes_rest(row, col, lines, 3) {
-                total += find_match(row, col, lines, 1, next_starts, 1, 4);
-            } // if the char is S then check for AM. then check for SAM in the two other possible places
-            else if is_correct_char_at(letter, 3) && makes_rest(row, col, lines, 1) {
-                total += find_match(row, col, lines, 3, next_starts, -1, 0);
-            } 
-            // for the down direction S need to check for the side staring at either M or S
-            else if is_correct_char_at(letter, 1) && makes_rest_down(row, col, lines, 3) {
-                let did_find = find_match(row, col, lines, 1, next_t_starts, 1, 4);
-                if did_find == 1 {
-                    total += 1;
-                    continue;
-                }
-                total += find_match(row, col, lines, 3, next_t_starts, -1, 0);
-            } 
-            // for the down direction M need to check for the side staring at either M or S 
-            else if is_correct_char_at(letter, 1) && makes_rest_down(row, col, lines, 1) {
-                let did_find = find_match(row, col, lines,1, next_t_starts, 1, 4);
-                if did_find == 1 {
-                    total += 1;
-                    continue;
-                }
-                total += find_match(row, col, lines, 3, next_t_starts, -1, 0);
+            if makes_xmas(row, col, lines) {
+                total += 1;
             }
         }
     }
-
     println!("total found: {}", total);
 }
+
+/**
+ * Possibilities
+ *  M   S   M   S
+ * SAM SAM MAS MAS
+ *  S   M   S   M
+ * 
+ * M M  M S  S M  S S 
+ *  A    A    A    A
+ * S S  M S  S M  M M
+ */
+fn makes_xmas(row: usize, col: usize, lines:&[String])-> bool{
+    let patterns = [
+        // Pattern 1
+        [' ', 'M', ' '],
+        ['S', 'A', 'M'],
+        [' ', 'S', ' '],
+        // Pattern 2
+        [' ', 'S', ' '],
+        ['S', 'A', 'M'],
+        [' ', 'M', ' '],
+        // Pattern 3
+        [' ', 'M', ' '],
+        ['M', 'A', 'S'],
+        [' ', 'S', ' '],
+        // Pattern 4
+        [' ', 'S', ' '],
+        ['M', 'A', 'S'],
+        [' ', 'M', ' '],
+        // Pattern 5
+        ['M', ' ', 'M'],
+        [' ', 'A', ' '],
+        ['S', ' ', 'S'],
+        // Pattern 6
+        ['M', ' ', 'S'],
+        [' ', 'A', ' '],
+        ['M', ' ', 'S'],
+        // Pattern 7
+        ['S', ' ', 'M'],
+        [' ', 'A', ' '],
+        ['S', ' ', 'M'],
+        // Pattern 8
+        ['S', ' ', 'S'],
+        [' ', 'A', ' '],
+        ['M', ' ', 'M'],
+    ];
+
+    // Iterate over each pattern
+    for pattern in patterns.chunks(3) {
+        let mut match_found = true;
+        // Check each cell in the 3x3 pattern
+        for (i, row_pattern) in pattern.iter().enumerate() {
+            for (j, &ch) in row_pattern.iter().enumerate() {
+                // Skip spaces in the pattern
+                if ch == ' ' {
+                    continue;
+                }
+                // Calculate the actual position in the matrix
+                let r = row + i;
+                let c = col + j;
+                // Check boundaries
+                if r >= lines.len() || c >= lines[r].len() {
+                    match_found = false;
+                    break;
+                }
+                // Check if the character matches
+                if lines[r].chars().nth(c) != Some(ch) {
+                    match_found = false;
+                    break;
+                }
+            }
+            if !match_found {
+                break;
+            }
+        }
+        // If a match is found, return true
+        if match_found {
+            return true;
+        }
+    }
+    // No pattern matched
+    false
+
+}
+
 
 fn find_match(row: usize, col: usize, lines:&[String], index: i32, next_starts: [((isize, isize), (isize, isize)); 2], direction: i32, stop_index: i32) -> i32 {
     let max_row = lines.len();
