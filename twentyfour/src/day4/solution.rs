@@ -34,24 +34,37 @@ pub fn solution2(lines: &[String]) {
         ((0, 2), (1, -1)), // check same row, 2 over going down left
         ((2, 0), (-1, 1))]; // check 2 down, same col going up right  
     let next_t_starts = [
-        ((0, 1), (1, 0)),
-        ((1, 0), (0, 1))
+        ((-1, 1), (0, 1)),// start 1 row left, 1 col down. go left
+        ((-1, 1), (0, 1)) // to make compiler happy, but it will return on the first found
     ];
-    // let deltas = (1, 1); // going down right
     for row in 0..lines.len() {
         for col in 0..lines[row].len() {
             // check to see if this is a valid starting point
             let letter = lines[row].chars().nth(col).unwrap();
             // if the char is M then check for AS. then check for MAS in the two other possible dirs
             if is_correct_char_at(letter, 1) && makes_rest(row, col, lines, 3) {
-                total += find_match(row, col, lines, next_starts, 1, 4);
+                total += find_match(row, col, lines, 1, next_starts, 1, 4);
             } // if the char is S then check for AM. then check for SAM in the two other possible places
             else if is_correct_char_at(letter, 3) && makes_rest(row, col, lines, 1) {
-                total += find_match(row, col, lines, next_starts, -1, 0);
-            } else if is_correct_char_at(letter, 1) && makes_rest_down(row, col, lines, 3) {
-                total += find_match(row, col, lines, next_t_starts, 1, 4);
-            } else if is_correct_char_at(letter, 1) && makes_rest_down(row, col, lines, 1) {
-                total += find_match(row, col, lines, next_t_starts, -1, 0);
+                total += find_match(row, col, lines, 3, next_starts, -1, 0);
+            } 
+            // for the down direction S need to check for the side staring at either M or S
+            else if is_correct_char_at(letter, 1) && makes_rest_down(row, col, lines, 3) {
+                let did_find = find_match(row, col, lines, 1, next_t_starts, 1, 4);
+                if did_find == 1 {
+                    total += 1;
+                    continue;
+                }
+                total += find_match(row, col, lines, 3, next_t_starts, -1, 0);
+            } 
+            // for the down direction M need to check for the side staring at either M or S 
+            else if is_correct_char_at(letter, 1) && makes_rest_down(row, col, lines, 1) {
+                let did_find = find_match(row, col, lines,1, next_t_starts, 1, 4);
+                if did_find == 1 {
+                    total += 1;
+                    continue;
+                }
+                total += find_match(row, col, lines, 3, next_t_starts, -1, 0);
             }
         }
     }
@@ -59,7 +72,7 @@ pub fn solution2(lines: &[String]) {
     println!("total found: {}", total);
 }
 
-fn find_match(row: usize, col: usize, lines:&[String], next_starts: [((isize, isize), (isize, isize)); 2], direction: i32, stop_index: i32) -> i32 {
+fn find_match(row: usize, col: usize, lines:&[String], index: i32, next_starts: [((isize, isize), (isize, isize)); 2], direction: i32, stop_index: i32) -> i32 {
     let max_row = lines.len();
     let max_col = lines[0].len();
     for ((delta_start_row, delta_start_col), (delta_row, delta_col)) in next_starts {
