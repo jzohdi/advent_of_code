@@ -2,15 +2,15 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-mod day3 {
+mod day4 {
     pub mod solution;
 }
 
-use day3::solution::{solution1, solution2};
+use day4::solution::{solution1, solution2};
 
 fn main() -> io::Result<()> {
     // Specify the path to the file'
-    let file_path = "src/day3/part1.txt";
+    let file_path = "src/day4/part1.txt";
     let path = Path::new(file_path);
 
     // Open the file in read-only mode

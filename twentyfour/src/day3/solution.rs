@@ -33,7 +33,7 @@ pub fn solution2(lines: &[String]) {
         if start_pos == 0 {
             if let Some(dont_match) = re_dont.find(&text[..do_start]) {
                 let dont_start = dont_match.start();
-                if (dont_start < do_start) {
+                if  dont_start < do_start {
                     total += solution1(&[String::from(&text[..dont_start])]);
                 } else {
                     total += solution1(&[String::from(&text[..do_start])]);
