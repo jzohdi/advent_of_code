@@ -39,88 +39,59 @@ pub fn solution2(lines: &[String]) {
 
 /**
  * Possibilities
- *  M   S   M   S
- * SAM SAM MAS MAS
- *  S   M   S   M
- * 
  * M M  M S  S M  S S 
  *  A    A    A    A
  * S S  M S  S M  M M
  */
 fn makes_xmas(row: usize, col: usize, lines:&[String])-> bool{
     let patterns = [
-        // Pattern 1
-        [' ', 'M', ' '],
-        ['S', 'A', 'M'],
-        [' ', 'S', ' '],
-        // Pattern 2
-        [' ', 'S', ' '],
-        ['S', 'A', 'M'],
-        [' ', 'M', ' '],
-        // Pattern 3
-        [' ', 'M', ' '],
-        ['M', 'A', 'S'],
-        [' ', 'S', ' '],
-        // Pattern 4
-        [' ', 'S', ' '],
-        ['M', 'A', 'S'],
-        [' ', 'M', ' '],
-        // Pattern 5
         ['M', ' ', 'M'],
         [' ', 'A', ' '],
         ['S', ' ', 'S'],
-        // Pattern 6
+
         ['M', ' ', 'S'],
         [' ', 'A', ' '],
         ['M', ' ', 'S'],
-        // Pattern 7
+
         ['S', ' ', 'M'],
         [' ', 'A', ' '],
         ['S', ' ', 'M'],
-        // Pattern 8
+
         ['S', ' ', 'S'],
         [' ', 'A', ' '],
         ['M', ' ', 'M'],
     ];
 
-    // Iterate over each pattern
     for pattern in patterns.chunks(3) {
-        let mut match_found = true;
-        // Check each cell in the 3x3 pattern
-        for (i, row_pattern) in pattern.iter().enumerate() {
-            for (j, &ch) in row_pattern.iter().enumerate() {
-                // Skip spaces in the pattern
-                if ch == ' ' {
-                    continue;
-                }
-                // Calculate the actual position in the matrix
-                let r = row + i;
-                let c = col + j;
-                // Check boundaries
-                if r >= lines.len() || c >= lines[r].len() {
-                    match_found = false;
-                    break;
-                }
-                // Check if the character matches
-                if lines[r].chars().nth(c) != Some(ch) {
-                    match_found = false;
-                    break;
-                }
-            }
-            if !match_found {
-                break;
-            }
-        }
-        // If a match is found, return true
-        if match_found {
+        // println!("currently looking at pattern {:?}", pattern);
+        if makes_pattern(row, col, lines, pattern) {
             return true;
         }
     }
-    // No pattern matched
-    false
 
+    false
 }
 
+fn makes_pattern(row: usize, col: usize, lines:&[String], pattern: &[[char; 3]]) -> bool {
+    for (i, row_pattern) in pattern.iter().enumerate() {
+        for (j, &ch) in row_pattern.iter().enumerate() {
+            // Skip spaces in the pattern
+            if ch == ' ' {
+                continue;
+            }
+            let r = row + i;
+            let c = col + j;
+
+            if r >= lines.len() || c >= lines[r].len() {
+                return false;
+            }
+            if lines[r].chars().nth(c) != Some(ch) {
+                return false
+            }
+        }
+    }
+    return true;
+}
 
 fn find_match(row: usize, col: usize, lines:&[String], index: i32, next_starts: [((isize, isize), (isize, isize)); 2], direction: i32, stop_index: i32) -> i32 {
     let max_row = lines.len();
