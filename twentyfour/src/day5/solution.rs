@@ -42,14 +42,6 @@ pub fn solution1(lines: &[String]) {
         //     .zip(update.iter().sorted())
         //     .all(|(a, b)| a == b);
     }
-    // update_lines.sort_by(|a, b| {
-    //     if let Some(set) = rules.get(a) {
-    //         if set.contains(b) {
-    //             return Ordering::Less;
-    //         }
-    //     }
-    //     Ordering::Equal
-    // });
     println!("total: {}", total);
 }
 
