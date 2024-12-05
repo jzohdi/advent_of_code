@@ -93,66 +93,6 @@ fn makes_pattern(row: usize, col: usize, lines:&[String], pattern: &[[char; 3]])
     return true;
 }
 
-fn find_match(row: usize, col: usize, lines:&[String], index: i32, next_starts: [((isize, isize), (isize, isize)); 2], direction: i32, stop_index: i32) -> i32 {
-    let max_row = lines.len();
-    let max_col = lines[0].len();
-    for ((delta_start_row, delta_start_col), (delta_row, delta_col)) in next_starts {
-        if !is_valid_next(row, col, delta_start_row, delta_start_col, max_row, max_col) {
-            continue;
-        }
-        let next_row = row.checked_add_signed(delta_start_row).unwrap();
-        let next_col = col.checked_add_signed(delta_start_col).unwrap();
-        // if one is valid, then the other cannot be
-        if found_xmas_in_direction(lines, next_row, next_col, 3, delta_row, delta_col, direction, stop_index)  {
-            return 1;
-        }
-    }
-    return 0;
-}
-
-fn makes_rest_down(row: usize, col: usize, lines: &[String], last_char: i32) -> bool { 
-    if !is_valid_next(row, col, 1, 0, lines.len(), lines[row].len()) {
-        return false;
-    }
-    if !is_valid_next(row, col, 2, 0, lines.len(), lines[row].len()) {
-        return false;
-    }
-    let mut next_row = row + 1;
-    let mut next_col = col;
-    let mut letter = lines[next_row].chars().nth(next_col).unwrap();
-    if !is_correct_char_at(letter, 2) {
-        return false;
-    }
-    next_row += 1;
-    letter = lines[next_row].chars().nth(next_col).unwrap();
-    if !is_correct_char_at(letter, last_char) {
-        return false;
-    }
-    return true;
-}
-
-fn makes_rest(row: usize, col: usize, lines: &[String], last_char: i32) -> bool {
-    if !is_valid_next(row, col, 1, 1, lines.len(), lines[row].len()) {
-        return false;
-    }
-    if !is_valid_next(row, col, 2, 2, lines.len(), lines[row].len()) {
-        return false;
-    }
-    let mut next_row = row + 1;
-    let mut next_col = col + 1;
-    let mut letter = lines[next_row].chars().nth(next_col).unwrap();
-    if !is_correct_char_at(letter, 2) {
-        return false;
-    }
-    next_row += 1;
-    next_col += 1;
-    letter = lines[next_row].chars().nth(next_col).unwrap();
-    if !is_correct_char_at(letter, last_char) {
-        return false;
-    }
-    return true;
-}
-
 // I know that I'm iterating to the left and then down. 
 // So don't need to check up or to the left
 // fn get_mas_starts(row: usize, col: usize, delta_row: isize, delta_col: isize) {
