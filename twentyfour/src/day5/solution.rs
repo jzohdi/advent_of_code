@@ -32,9 +32,10 @@ pub fn solution1(lines: &[String]) {
             }
             Ordering::Equal
         });
-        if copy_update == update {
+        // for part 1 use ==
+        if copy_update != update {
             println!("line is sorted: {:?}", update);
-            total += String::from(*(get_middle_element(&update).unwrap())).parse::<i32>().unwrap();
+            total += String::from(*(get_middle_element(&copy_update).unwrap())).parse::<i32>().unwrap();
         }
         // let is_sorted = update
         //     .iter()
