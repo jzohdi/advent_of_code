@@ -2,15 +2,15 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-mod day5 {
+mod day6 {
     pub mod solution;
 }
 
-use day5::solution::{solution1, solution2};
+use day6::solution::{solution1, solution2};
 
 fn main() -> io::Result<()> {
     // Specify the path to the file'
-    let file_path = "src/day5/part1.txt";
+    let file_path = "src/day6/part1.txt";
     let path = Path::new(file_path);
 
     // Open the file in read-only mode
@@ -20,11 +20,11 @@ fn main() -> io::Result<()> {
     let reader = io::BufReader::new(file);
     // Collect lines into a vector
     let lines: Vec<String> = reader
-    .lines() // Iterator over Result<String, io::Error>
-    .collect::<Result<_, _>>()?; // Collect and handle potential errors
+        .lines() // Iterator over Result<String, io::Error>
+        .collect::<Result<_, _>>()?; // Collect and handle potential errors
 
-    solution1(&lines);
-    solution2(&lines);
+        solution1(&lines);
+        solution2(&lines);
     Ok(())
 }
 
