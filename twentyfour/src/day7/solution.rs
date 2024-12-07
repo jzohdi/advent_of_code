@@ -12,22 +12,6 @@ pub fn solution1(lines: &[String]) {
     println!("total: {}", total);
 }
 
-fn does_math(target: &Target, numbers: &Vec<Num>, total: Num) -> bool {
-    // Base case: If the vector is empty, return
-    if numbers.is_empty() {
-        return *target == total;
-    }
-
-    // Get the first number and the rest of the vector
-    let first_num = numbers[0];
-    let remaining_numbers = &numbers[1..].to_vec();
-    // println!("target: {:?} total: {:?} num: {:?}", target, total, first_num);
-    return does_math(target, remaining_numbers, Num(total + first_num)) || 
-        does_math(target, remaining_numbers, Num(total * first_num)) ||
-        // comment the next line out for part1
-        does_math(target, remaining_numbers, total.concat(first_num))
-}
-
 pub fn solution2(lines: &[String]) {  
     println!("{}", lines.len());
 }
@@ -91,12 +75,28 @@ impl Equation {
         if self.numbers.len() == 1 && self.target == first_num {
             return Some(first_num.0)
         }
-        if does_math(&self.target, &self.numbers[1..].to_vec(), first_num) {
+        if self.can_make_target(&self.numbers[1..].to_vec(), first_num) {
             return Some(self.target.0);
         }
         None
     }
+    fn can_make_target(&self, numbers: &Vec<Num>, total: Num) -> bool {
+        // Base case: If the vector is empty, return
+        if numbers.is_empty() {
+            return self.target == total;
+        }
+    
+        // Get the first number and the rest of the vector
+        let first_num = numbers[0];
+        let remaining_numbers = &numbers[1..].to_vec();
+        // println!("target: {:?} total: {:?} num: {:?}", target, total, first_num);
+        return self.can_make_target(remaining_numbers, Num(total + first_num)) || 
+            self.can_make_target(remaining_numbers, Num(total * first_num)) ||
+            // comment the next line out for part1
+            self.can_make_target(remaining_numbers, total.concat(first_num))
+    }
 }
+
 
 impl FromStr for Equation {
     type Err = ParseIntError;
