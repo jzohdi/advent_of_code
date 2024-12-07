@@ -1,4 +1,4 @@
-use std::{num::ParseIntError, ops::{Add, Mul}, str::FromStr};
+use std::{num::ParseIntError, ops::{Add, Mul}, str::FromStr, time::Instant};
 
 type Operator = fn(Num, Num) -> Num;
 
@@ -13,16 +13,18 @@ fn solution(lines: &[String], operators: Vec<Operator>) -> i64 {
 }
 
 pub fn solution1(lines: &[String]) {
+    let start = Instant::now();
     let operators: Vec<Operator> = vec![add, multiply];
     let total = solution(lines, operators);
-    println!("total part1: {}", total);
+    println!("total part1: {}, time: {}ms", total, start.elapsed().as_millis());
 }
 
 
 pub fn solution2(lines: &[String]) {  
+    let start = Instant::now();
     let operators: Vec<Operator> = vec![add, multiply, concat];
     let total = solution(lines, operators);
-    println!("total part1: {}", total);
+    println!("total part2: {}, time: {}ms", total, start.elapsed().as_millis());
 }
 
 
