@@ -2,17 +2,14 @@ use std::{num::ParseIntError, ops::{Add, Mul}, str::FromStr};
 
 type Operator = fn(Num, Num) -> Num;
 
-
 fn solution(lines: &[String], operators: Vec<Operator>) -> i64 {
-    let mut total = 0;
-    // Create a vector of operator functions;
-    for line in lines {
-        let equation = line.parse::<Equation>().unwrap().set_ops(operators.clone());
-        if let Some(target) = equation.is_valid() {
-            total += target;
-        }
-    }
-    return total;
+    return lines.iter().map(|line| {
+        line
+            .parse::<Equation>()
+            .unwrap()
+            .set_ops(operators.clone())
+            .is_valid().unwrap_or(0)
+    }).sum();
 }
 
 pub fn solution1(lines: &[String]) {
