@@ -1,20 +1,33 @@
 use std::{num::ParseIntError, ops::{Add, Mul}, str::FromStr};
 
-pub fn solution1(lines: &[String]) {  
+type Operator = fn(Num, Num) -> Num;
+
+
+fn solution(lines: &[String], operators: Vec<Operator>) -> i64 {
     let mut total = 0;
+    // Create a vector of operator functions;
     for line in lines {
-        let equation = line.parse::<Equation>().unwrap();
+        let equation = line.parse::<Equation>().unwrap().set_ops(operators.clone());
         if let Some(target) = equation.is_valid() {
             total += target;
         }
     }
-
-    println!("total: {}", total);
+    return total;
 }
+
+pub fn solution1(lines: &[String]) {
+    let operators: Vec<Operator> = vec![add, multiply];
+    let total = solution(lines, operators);
+    println!("total part1: {}", total);
+}
+
 
 pub fn solution2(lines: &[String]) {  
-    println!("{}", lines.len());
+    let operators: Vec<Operator> = vec![add, multiply, concat];
+    let total = solution(lines, operators);
+    println!("total part1: {}", total);
 }
+
 
 #[derive(Debug)]
 struct Target(i64);
@@ -63,9 +76,17 @@ impl Num {
 struct Equation {
     target: Target,
     numbers: Vec<Num>,
+    operations: Vec<Operator>
 }
 
 impl Equation {
+    fn set_ops(self, ops: Vec<Operator>) -> Equation {
+        return Equation {
+            operations: ops,
+            ..self
+        }
+    }
+
     fn is_valid(&self) -> Option<i64> {
         // println!("equation: {:?}", self);
         if self.numbers.len() == 0 && self.target == 0 {
@@ -86,14 +107,12 @@ impl Equation {
             return self.target == total;
         }
     
-        // Get the first number and the rest of the vector
         let first_num = numbers[0];
         let remaining_numbers = &numbers[1..].to_vec();
-        // println!("target: {:?} total: {:?} num: {:?}", target, total, first_num);
-        return self.can_make_target(remaining_numbers, Num(total + first_num)) || 
-            self.can_make_target(remaining_numbers, Num(total * first_num)) ||
-            // comment the next line out for part1
-            self.can_make_target(remaining_numbers, total.concat(first_num))
+
+        return self.operations.iter().any(|op| 
+            self.can_make_target(remaining_numbers, op(total, first_num)));
+
     }
 }
 
@@ -117,6 +136,19 @@ impl FromStr for Equation {
             .map(|num_str| num_str.parse::<i64>().map(Num))
             .collect::<Result<Vec<_>, _>>()?;
 
-        Ok(Equation { target, numbers })
+        Ok(Equation { target, numbers, operations: vec![] })
     }
+}
+
+
+fn add(a: Num, b: Num) -> Num {
+    Num(a + b)
+}
+
+fn multiply(a: Num, b: Num) -> Num {
+    Num(a * b)
+}
+
+fn concat(a: Num, b: Num) -> Num {
+    return a.concat(b)
 }
