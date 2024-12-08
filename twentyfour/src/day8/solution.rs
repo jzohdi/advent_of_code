@@ -14,14 +14,10 @@ pub fn solution1(lines: &[String]) {
         .iter()
         .flat_map(|edge| {
             edge.valid_anti_nodes(&dimensions, |(a, b), dims| {
-                let mut result = vec![];
-                if let Some(node_a) = a.anti_node(b, dims) {
-                    result.push(node_a);
-                }
-                if let Some(node_b) = b.anti_node(a, dims) {
-                    result.push(node_b);
-                }
-                return result;
+                vec![a.anti_node(b, dims), b.anti_node(a, dims)]
+                    .into_iter()
+                    .filter_map(|o| o)
+                    .collect()
             })
         })
         .collect();
@@ -47,7 +43,6 @@ pub fn solution2(lines: &[String]) {
         .iter()
         .flat_map(|edge| {
             edge.valid_anti_nodes(&dimensions, |(a, b), dims| {
-                // first there will always be anti_nodes at b and a
                 let mut result = vec![];
                 result.append(&mut a.get_expanded_anti_nodes(b, dims));
                 result.append(&mut b.get_expanded_anti_nodes(a, dims));
@@ -133,8 +128,6 @@ impl AntenaEdge {
         }
     }
     fn valid_anti_nodes(&self, dims: &BoardDimensions, generator: AntiNodeFn) -> Vec<Position> {
-        // println!("generating valid nodes for : {:?}", self.nodes);
-        // panic!("stop");
         generator(self.nodes, dims)
     }
 }
